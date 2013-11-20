@@ -5,7 +5,7 @@ class File implements ProviderInterface{
 
     protected $config;
 
-    const SOURCE = 'file';
+    const SOURCE = 'filename';
 
 
     public  function isValid(){
@@ -19,7 +19,7 @@ class File implements ProviderInterface{
      */
     public function validate($config){
 
-        if(isset($config[''])){
+        if(isset($config[self::SOURCE])){
             if(is_file(realpath($config[self::SOURCE]))){
                 return true;
             }
