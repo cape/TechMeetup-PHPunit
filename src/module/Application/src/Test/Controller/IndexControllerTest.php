@@ -8,17 +8,11 @@ class IndexControllerTest extends AbstractHttpControllerTestCase{
     public function setUp()
     {
 
-
-
-
         $this->setUseConsoleRequest(false);
         $this->setApplicationConfig(
             include getcwd().'/config/application.config.php'
         );
         $this->getApplication();
-
-
-
 
 
     }
@@ -30,6 +24,8 @@ class IndexControllerTest extends AbstractHttpControllerTestCase{
         $this->assertMatchedRouteName('home');
         $this->assertControllerName('application\controller\index');
         $this->assertQuery('.jumbotron','div');
+
+
 
     }
 

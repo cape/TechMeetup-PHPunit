@@ -3,15 +3,40 @@ namespace Application\Data\Provider;
 
 class File implements ProviderInterface{
 
-    protected $filename;
+    protected $config;
+
+    const SOURCE = 'file';
+
+
+    public  function isValid(){
+        return true == $this->validate($this->config);
+    }
+
+    /**
+     * checks that the configuration file is valid
+     * @param $config array
+     * @return bool
+     */
+    public function validate($config){
+
+        if(isset($config[self::SOURCE])){
+            if(is_file(realpath($config[self::SOURCE]))){
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     /**
      * return the content of a file
      * @return string
      */
     public function get(){
-
-        return file_get_contents($this->filename);
+        if($this->isValid()){
+            return file_get_contents($this->config[self::SOURCE]);
+        }
+        return false;
 
     }
 
@@ -19,8 +44,10 @@ class File implements ProviderInterface{
      * configure the provider
      * @param $config
      */
-    public function config($config)
+    public function configure($config)
     {
-        $this->filename = $config['filename'];
+        if($this->validate($config)){
+            $this->config = $config;
+        }
     }
 }
