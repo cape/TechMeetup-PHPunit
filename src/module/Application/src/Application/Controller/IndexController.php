@@ -9,13 +9,41 @@
 
 namespace Application\Controller;
 
+
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Data\Provider\File as DataProvider;
 
 class IndexController extends AbstractActionController
 {
+
     public function indexAction()
     {
-        return new ViewModel();
+        $view = new ViewModel();
+
+        $provider = new DataProvider();
+
+        $provider->config(array('filename'=> getcwd().'/data/content/list'));
+
+        $this->setViewVariable($view,'first',$provider->get());
+        $this->setViewVariable($view,'second',$provider->get());
+        $this->setViewVariable($view,'third',$provider->get());
+
+
+
+        return $view;
+    }
+
+    protected function setViewVariable($view, $variable,$content=false){
+
+        $view->setVariable($variable,'empty');
+        if($content!==false){
+            $view->setVariable($variable,$content);
+        }
+
+    }
+
+    public function searchAction(){
+
     }
 }
