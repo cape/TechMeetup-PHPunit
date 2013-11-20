@@ -33,8 +33,10 @@ class File implements ProviderInterface{
      * @return string
      */
     public function get(){
-
-        return file_get_contents($this->config[self::SOURCE]);
+        if($this->isValid()){
+            return file_get_contents($this->config[self::SOURCE]);
+        }
+        return false;
 
     }
 
