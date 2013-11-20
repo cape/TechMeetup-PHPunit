@@ -5,28 +5,6 @@ class File implements ProviderInterface{
 
     protected $filename;
 
-
-
-    public  function isValid($config){
-        return true == $this->validate($config);
-    }
-
-    /**
-     * checks that the configuration file is valid
-     * @param $config array
-     * @return bool
-     */
-    public function validate($config){
-
-        if(isset($config['filename'])){
-            if(is_file(realpath($config['filename']))){
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     /**
      * return the content of a file
      * @return string
