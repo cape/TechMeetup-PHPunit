@@ -21,8 +21,6 @@ class File implements ProviderInterface{
      */
     public function config($config)
     {
-        if($this->isValid($config)){
-            $this->filename = $config['filename'];
-        }
+        $this->filename = $config['filename'];
     }
 }
