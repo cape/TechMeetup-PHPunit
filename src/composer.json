@@ -1,8 +1,10 @@
 {
-    "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
+    "name": "cape/techmeetup-phpunit",
+    "description": "ZendFramework 2 php unit testing para la TechMeetup.uy 20013",
     "license": "BSD-3-Clause",
     "keywords": [
+        "TechMeetup",
+        "PHPunit",
         "framework",
         "zf2"
     ],
@@ -10,5 +12,12 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.2.*"
+    },
+    "require-dev":{
+        "zendframework/zftool": "dev-master",
+        "zendframework/zend-developer-tools": "dev-master",
+        "phpunit/phpunit": "3.7.*",
+        "prolic/humus-phpunit-module": "1.*"
     }
+
 }
