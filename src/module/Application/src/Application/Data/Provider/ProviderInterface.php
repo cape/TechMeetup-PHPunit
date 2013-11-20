@@ -12,6 +12,7 @@ namespace Application\Data\Provider;
 interface ProviderInterface {
 
     public function get();
-    public function config($config);
+    public function configure($config);
+    public function validate($config);
 
 } 

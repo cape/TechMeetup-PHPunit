@@ -23,7 +23,7 @@ class IndexController extends AbstractActionController
 
         $provider = new DataProvider();
 
-        $provider->config(array('filename'=> getcwd().'/data/content/list'));
+        $provider->configure(array('filename'=> getcwd().'/data/content/list'));
 
         $this->setViewVariable($view,'first',$provider->get());
         $this->setViewVariable($view,'second',$provider->get());
