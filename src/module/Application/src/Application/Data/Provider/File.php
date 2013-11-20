@@ -19,7 +19,7 @@ class File implements ProviderInterface{
      */
     public function validate($config){
 
-        if(isset($config[''])){
+        if(isset($config[self::SOURCE])){
             if(is_file(realpath($config[self::SOURCE]))){
                 return true;
             }
