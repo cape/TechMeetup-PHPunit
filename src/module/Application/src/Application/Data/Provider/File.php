@@ -5,7 +5,7 @@ class File implements ProviderInterface{
 
     protected $config;
 
-    const SOURCE = 'file';
+    const SOURCE = 'filename';
 
 
     public  function isValid(){
